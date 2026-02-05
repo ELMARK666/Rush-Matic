@@ -3,12 +3,12 @@
 /build/
 /dist/
 
-# Maven (if used)
-/target/
+# Ant
+/classes/
 
 # Logs
 *.log
 
-# OS junk
+# OS
 .DS_Store
 Thumbs.db
