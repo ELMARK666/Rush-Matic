@@ -1,0 +1,99 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 10 16, 23, 8:36:06 AM
+    Author     : MADR20220271
+*/
+@media print{
+    .modal-header, .modal-footer, .modal-dialog, .close{
+        display: none;
+    }
+
+    /* Set page margins and fonts */
+    body {
+        margin: 0.5in;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Define specific styles for elements inside the modal content */
+    #modal-content {
+        width: 100%; /* Adjust as needed */
+        height: auto; /* Adjust as needed */
+        background-color: #c6f2fb;
+        padding: 20px;
+    }
+    input{
+       border: none;
+       border-bottom: 1px solid #333;
+    }
+    
+    .col-md-8{
+        margin-bottom:10px;
+    }
+    .col-md-5 {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+    .col-md-2 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+    
+    .grid-container {
+    margin-left: 35px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap:10px;
+    }
+
+    .grid-item {
+        width: 310px;
+      text-align: left;
+    }
+    .grid-container1 {
+        margin-top:30px;
+        margin-left: 42px; 
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+        gap: 10px; /* Gap between grid items */
+      }
+
+      .grid-item1 {
+        text-align: left;
+        margin: 0px;
+      }
+      .approve{
+          margin: 0px;
+      }
+      #desc{
+         
+          margin-bottom: 10px;
+          
+      }
+      #attach{
+          margin-bottom: 10px;
+      }
+      #accountname{
+          margin-bottom: 10px;
+      }
+    hr{
+        width: 100%;
+    }
+    .date{
+        margin-left: -25px;
+    }
+ 
+    .rights{
+        margin-left: 80%;
+        margin-top: -89px;
+
+    }
+    .rights input[type="checkbox"] {
+        -webkit-appearance: checkbox !important;
+        appearance: checkbox !important;
+    }
+
+}
