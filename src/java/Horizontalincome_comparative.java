@@ -1,6 +1,3 @@
-
-
-
 import db.matic_fs;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,8 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Horizontalbalance_comparative")
-public class Horizontalbalance_comparative extends HttpServlet {
+@WebServlet("/Horizontalincome_comparative")
+public class Horizontalincome_comparative extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -40,7 +37,6 @@ public class Horizontalbalance_comparative extends HttpServlet {
         String z = request.getParameter("zone");
         String r = request.getParameter("region");
         String b = request.getParameter("branch");
-        String c = request.getParameter("code");
         String f = request.getParameter("group");
         
         int month = Integer.parseInt(m1);
@@ -75,7 +71,7 @@ public class Horizontalbalance_comparative extends HttpServlet {
             Statement stmt = conn.createStatement();
             stmt.execute("SET sql_mode = ''");
                 
-            sql = "CALL HbalanceRevenue(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            sql = "CALL HRevenue(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             pstRev = conn.prepareStatement(sql);
             pstRev.setString(1, r);
             pstRev.setString(2, b);
@@ -148,7 +144,7 @@ public class Horizontalbalance_comparative extends HttpServlet {
                         + "<td style='text-align:right;font-weight: bold;'>"+String.format("%,.2f",rev1)+"</td>"
                     + "</tr>";
                 
-            String sql2 = "CALL HbalanceExpense(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql2 = "CALL HExpense(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 pstExp = conn.prepareStatement(sql2);
                 pstExp.setString(1, r);
                 pstExp.setString(2, b);
