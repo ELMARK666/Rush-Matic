@@ -60,35 +60,35 @@ public class fs_general_ledger extends HttpServlet {
 
                     switch (per_account_filter) {
                         case "1": // ZONE
-                            sql = "SELECT f.date, v.RegionName AS Region, gl.name AS GLCode, gl.description AS Description, " +
+                            sql = "SELECT f.date, v.RegionName AS Region, gl.code AS GLCode, gl.description AS Description, " +
                                   "SUM(f.total_amount) AS Amount " +
                                   "FROM fs.fs f " +
                                   "INNER JOIN vw_new_branch_record v ON f.branch_id = v.BranchID " +
                                   "INNER JOIN fs.codes gl ON f.code_id = gl.code_id " +
                                   "WHERE f.zone_id = ? AND f.date BETWEEN ? AND ? AND gl.description = ? " +
-                                  "GROUP BY v.RegionName, gl.name, gl.description " +
+                                  "GROUP BY v.RegionName, gl.code, gl.description " +
                                   "ORDER BY v.RegionName ASC";
                             break;
 
                         case "2": // REGION
-                            sql = "SELECT f.date, v.Branch AS Branch, gl.name AS GLCode, gl.description AS Description, " +
+                            sql = "SELECT f.date, v.Branch AS Branch, gl.code AS GLCode, gl.description AS Description, " +
                                   "SUM(f.total_amount) AS Amount " +
                                   "FROM fs.fs f " +
                                   "INNER JOIN vw_new_branch_record v ON f.branch_id = v.BranchID " +
                                   "INNER JOIN fs.codes gl ON f.code_id = gl.code_id " +
                                   "WHERE v.Region = ? AND f.date BETWEEN ? AND ? AND gl.description = ? " +
-                                  "GROUP BY f.date, v.Branch, gl.name, gl.description " +
+                                  "GROUP BY f.date, v.Branch, gl.code, gl.description " +
                                   "ORDER BY f.date ASC";
                             break;
 
                         case "3": // BRANCH
-                            sql = "SELECT f.date, v.Branch AS Branch, gl.name AS GLCode, gl.description AS Description, " +
+                            sql = "SELECT f.date, v.Branch AS Branch, gl.code AS GLCode, gl.description AS Description, " +
                                   "SUM(f.total_amount) AS Amount " +
                                   "FROM fs.fs f " +
                                   "INNER JOIN vw_new_branch_record v ON f.branch_id = v.BranchID " +
                                   "INNER JOIN fs.codes gl ON f.code_id = gl.code_id " +
                                   "WHERE v.Region = ? AND f.date BETWEEN ? AND ? AND gl.description = ? AND v.Branch = ? " +
-                                  "GROUP BY f.date, v.Branch, gl.name, gl.description " +
+                                  "GROUP BY f.date, v.Branch, gl.code, gl.description " +
                                   "ORDER BY f.date ASC";
                             break;
 
@@ -146,13 +146,11 @@ public class fs_general_ledger extends HttpServlet {
                     if (ledgerData.isEmpty()) {
                         ledgerData = "<tr><td colspan='5' style='text-align:center;'>No data found</td></tr>";
                     }
-
                     out.print(tableHeader);
                     out.print(ledgerData);
                     return;
                 }
             }
-
             // ----------------- INVALID LEDGER -----------------
             else {
                 out.print("<tr><td colspan='5' style='text-align:center;'>No data for this ledger</td></tr>");

@@ -255,7 +255,7 @@ public class Otherreports extends HttpServlet {
                                 + "WHEN t.code = '524801' THEN 'Miscellaneous Expense' "
                                 + "WHEN t.code BETWEEN '524901' AND '524912' THEN 'Depreciation and Amortization Expense' "
                                 + "WHEN t.code = '611101' THEN 'HO Expenses' END AS label, "
-                                + "FORMAT(SUM(f.total_amount), 2) AS amount "
+                                + "SUM(f.total_amount) AS amount "
                             + "FROM fs f "
                             + "INNER JOIN vw_new_branch_record v ON v.BranchId = f.branch_id "
                             + "INNER JOIN codes t ON t.code_id = f.code_id "
