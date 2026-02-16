@@ -149,12 +149,9 @@
                     <input type="text" class="form-control" id="per_range_gl_from_new" name="per_cat_gl_from_new" placeholder="GLCode from" style="width:220px">
                     <input type="text" class="form-control" id="per_range_gl_to" name="per_cat_gl_to" placeholder="GLCode to" style="width:220px">
                     
-                    
-                    
                     <input type="text" class="form-control" id="per_range_search" name="per_cat_search" placeholder="Search Branch" style="width:220px">
                     
                     <!--<input type="text" class="form-control" id="per_cat_category" name="per_cat_category" placeholder="Search Category" style="width:220px">-->
-                    
                     <input type="hidden" name="action" id="action" value="filter_perrange" />
                     <button type="submit" class="form-control" id="serach_perrange_submit" style="padding:0px;">Search</button>
                     <button type="button" class="btn btn-info form-control hidden" id="excel" onclick="downloadExcel()">
